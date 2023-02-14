@@ -23,5 +23,19 @@ def create_employee():
     employee_id_counter += 1
     return jsonify(employee)
 
+@app.route('/api/v1/employees/<int:employee_id>', methods=['DELETE'])
+def delete_employee(employee_id):
+    global employees
+    employee_to_delete = None
+    for employee in employees:
+        if employee['id'] == employee_id:
+            employee_to_delete = employee
+            break
+    if employee_to_delete:
+        employees.remove(employee_to_delete)
+        return jsonify({'message': f"L'employé avec l'ID {employee_id} a été supprimé"})
+    else:
+        return jsonify({'erreur': f"L'employé avec l'ID {employee_id} n'a pas été trouvé"}), 404
+
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
