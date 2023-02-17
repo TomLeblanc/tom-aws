@@ -8,6 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install the required packages
+RUN apt-get install python3-pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Set the environment variable for Flask to run in production
