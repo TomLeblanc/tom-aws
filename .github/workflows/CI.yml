@@ -46,6 +46,6 @@ jobs:
         env:
           REPO: self
           BRANCH: Dev # Branche du merge
-          FOLDER: backend-tom # répertoire pour le back
+          FOLDER: backend_tom # répertoire pour le back
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MESSAGE: "Build: ({sha}) {msg} passed the tests with success"
