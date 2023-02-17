@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'pytest unittests.py'
+                sh 'pytest unittest.py'
             }
         }
         stage('Run API') {
